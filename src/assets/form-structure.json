@@ -1,0 +1,59 @@
+[
+    {
+      "type": "text",
+      "label": "First Name",
+      "name": "FirstName",
+      "value": "",
+      "validations": [
+        {
+          "name": "required",
+          "validator": "required",
+          "message": "First Name is required"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "label": "Last Name",
+      "name": "LastName",
+      "value": "",
+      "validations": [
+        {
+          "name": "required",
+          "validator": "required",
+          "message": "Last Name is required"
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "label": "Age",
+      "name": "age",
+      "value": "",
+      "validations": [
+        {
+          "name": "required",
+          "validator": "required",
+          "message": "Age is required"
+        }
+      ]
+    },
+    {
+      "type": "email",
+      "label": "Email",
+      "name": "email",
+      "value": "",
+      "validations": [
+        {
+          "name": "required",
+          "validator": "required",
+          "message": "Email is required"
+        },
+        {
+          "name": "pattern",
+          "validator": "email",
+          "message": "Invalid email format"
+        }
+      ]
+    }
+  ]

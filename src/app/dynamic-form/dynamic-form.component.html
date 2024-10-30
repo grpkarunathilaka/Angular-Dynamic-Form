@@ -1,0 +1,36 @@
+<form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+  @for (control of formStructure; track control) {
+    <div>
+      <mat-form-field appearance="fill">
+      <mat-label>{{ control.label }}</mat-label>
+      
+      <ng-container>
+        @switch(control.type) {
+          @case ('text') {
+        <input matInput [formControlName]="control.name" />
+          }
+          @case ('email') {
+        <input matInput [formControlName]="control.name" />
+          }
+          @case ('number') {
+        <input matInput [formControlName]="control.name" />
+          }
+          @case ('textarea') {
+        <textarea matInput [formControlName]="control.name"></textarea>
+          }
+          }
+      </ng-container>
+  @if(dynamicForm.controls[control.name].invalid &&
+                   (dynamicForm.controls[control.name].touched || dynamicForm.controls[control.name].dirty))
+                   {
+      <div>
+        <!-- <span>{{ control.label }} is required.</span> -->
+        <!-- <small class="error">{{ (control.validations?.find(v => v.name === 'required')?.message) }}</small> -->
+      </div>
+    }
+  </mat-form-field>
+    </div>
+  }
+    <button type="submit" [disabled]="dynamicForm.invalid">Submit</button>
+  </form>
+  
