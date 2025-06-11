@@ -1,0 +1,25 @@
+<div class="form-builder-container" cdkDropListGroup>
+  <div class="toolbox">
+    <h2>Toolbox</h2>
+    <div cdkDropList [cdkDropListData]="availableControls" class="control-list"
+         [cdkDropListConnectedTo]="[canvasBox]" cdkDropListSortingDisabled>
+      <div *ngFor="let control of availableControls" [cdkDragData]="control" cdkDrag class="control-item">
+        {{ control.label }}
+      </div>
+    </div>
+  </div>
+
+  <div #canvasBox="cdkDropList" cdkDropList [cdkDropListData]="formStructure" class="canvas"
+       (cdkDropListDropped)="onDrop($event)">
+    <h2>Canvas</h2>
+    <div *ngFor="let control of formStructure" [cdkDragData]="control" cdkDrag class="control-item">
+      {{ control.label }} (ID: {{control.id}})
+    </div>
+    <div *ngIf="formStructure.length === 0" class="empty-canvas-message">
+      Drag and drop controls here to build your form.
+    </div>
+  </div>
+  <div class="actions">
+    <button (click)="saveForm()">Save Form</button>
+  </div>
+</div>

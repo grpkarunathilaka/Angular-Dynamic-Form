@@ -1,0 +1,123 @@
+/* Example refined CSS for src/app/form-builder/form-builder.component.css */
+.form-builder-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.toolbox, .canvas {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.toolbox {
+  width: 250px; /* Slightly wider for better text display */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.canvas {
+  flex-grow: 1;
+  min-height: 400px; /* Increased min-height */
+}
+
+.toolbox h2, .canvas h2 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.control-list { /* Class for the div containing cdkDrag items */
+  min-height: 50px; /* Give some space for drop indication */
+  padding-top: 10px;
+}
+
+.canvas .control-list { /* Specific to canvas if needed */
+    min-height: 300px; /* Ensure canvas drop area is substantial */
+}
+
+.control-item {
+  padding: 10px 12px; /* More padding */
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  cursor: grab;
+  border-radius: 4px;
+  font-size: 0.9em;
+  display: flex; /* For potential icon alignment later */
+  justify-content: space-between; /* If you add more info like (ID: {{control.id}}) */
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.control-item:hover {
+    background-color: #f0f0f0;
+}
+
+.empty-canvas-message {
+  text-align: center;
+  color: #888; /* Lighter color */
+  margin-top: 50px;
+  font-style: italic;
+}
+
+/* Styling for CDK drag-and-drop states */
+.cdk-drag-preview { /* Style for the preview item being dragged */
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  background-color: #fff; /* Ensure preview has a background */
+  padding: 10px 12px;
+  font-size: 0.9em;
+}
+
+.cdk-drag-placeholder { /* Style for the placeholder */
+  opacity: 0.3;
+  display: block;
+  background: #e0e0e0; /* Placeholder background */
+  border: 1px dashed #aaa;
+  margin-bottom: 8px;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  border-radius: 4px;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.canvas.cdk-drop-list-dragging .control-item:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.control-list.cdk-drop-list-receiving { /* Highlight when ready to receive */
+    background-color: #e8f0fe; /* Light blue highlight */
+}
+
+.actions {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: right; /* Align button to the right */
+}
+
+.actions button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.actions button:hover {
+  background-color: #0056b3;
+}

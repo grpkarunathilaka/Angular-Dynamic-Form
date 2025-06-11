@@ -1,4 +1,5 @@
 export interface IFormStructure {
+    id?: string;
     type: string;
     label: string;
     name: string;
